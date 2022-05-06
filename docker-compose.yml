@@ -5,11 +5,13 @@ services:
     #image: registry:2.8.1
     image: registry:local
     restart: always
+    environment:
+      GC_CRON: "*/5 * * * *"
     volumes:
       - ./data:/var/lib/registry
       - ./registry.yml:/etc/docker/registry/config.yml:ro
       - ./htpasswd:/htpasswd:ro
-      - ./cron/cron-test:/etc/periodic/15min/test
+      #- ./cron/cron-test:/etc/periodic/15min/test
   
   registry-ui:
     image: joxit/docker-registry-ui:2.2.0-debian
