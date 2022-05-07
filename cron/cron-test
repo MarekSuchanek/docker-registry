@@ -1,4 +1,0 @@
-#/bin/sh
-
-echo "TEST" >> /tmp/cron-test.log
-date >> /tmp/cron-test.log
